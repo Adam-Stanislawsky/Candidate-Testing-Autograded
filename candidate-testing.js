@@ -39,13 +39,10 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  
-// (ORIGINAL FROM PT1) candidateAnswer = input.question(question);
 
-for (let i = 0; i < questions.length; i++) {
+  for (let i = 0; i < questions.length; i++) {
   candidateAnswers.push(input.question(questions[i]))
-  //console.log(candidateAnswers)
-};
+  };
 
 }
 
@@ -58,23 +55,27 @@ function gradeQuiz(candidateAnswers) {
    //   } else {
    //     console.log("Incorrect.")
    // };
+  let numberOfCorrectAnswers = 0;
+  
+  for (let i = 0; i < candidateAnswers.length; i++){
+    if(candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()){
+      numberOfCorrectAnswers = numberOfCorrectAnswers + 1;
+    }
+  }
 
-   //console.log(`Test complete. 
-   // Your answers: ${candidateAnswers}
-   // Correct answers: ${correctAnswers}
-   // `);
-  for (let i = 0; i<correctAnswers.length; i++){
-    console.log(`Question: ${questions[i]}
-    Your answer: ${candidateAnswers[i]}
-    Correct answer: ${correctAnswers[i]}`)
-  };
+
+
+  let grade = (numberOfCorrectAnswers/5)*100;  //TODO 3.2 use this variable to calculate the candidates score.
+  
+
 
   
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
   return grade;
+  
 }
+
+
+
 
 function runProgram() {
   askForName();
